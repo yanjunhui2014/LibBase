@@ -199,7 +199,7 @@ public class FileDownloadTask implements DownloadTask, DownloadTask.LifeCiycle {
             fileDownloadTask.savePath = this.savePath;
             fileDownloadTask.tag = this.tag;
 
-            if (!AppConfig.isRelease) {
+            if (AppConfig.isDebug) {
                 if (TextUtils.isEmpty(downloadUrl)) {
                     throw new NullPointerException("下载地址为空");
                 } else if (TextUtils.isEmpty(savePath)) {

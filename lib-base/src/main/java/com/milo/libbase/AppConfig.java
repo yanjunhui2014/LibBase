@@ -13,8 +13,10 @@ import android.app.Application;
  */
 public final class AppConfig {
 
-    public static boolean isRelease = false;
-
     public static Application app;
+
+    public static boolean isDebug = true;
+
+    public static LibBase libBase;
 
 }

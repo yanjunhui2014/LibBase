@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="libbase_c1">#4DD250</color>
+
+    <color name="libbase_c2">#333333</color>
+    <color name="libbase_c3">#666666</color>
+    <color name="libbase_c4">#999999</color>
+
     <color name="libbase_white">#ffffff</color>
-    <color name="libbase_black">#000000</color>
 
 </resources>

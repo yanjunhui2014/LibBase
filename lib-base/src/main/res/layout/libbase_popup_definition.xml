@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#88000000"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/mLayoutStandard"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mTvStandard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标清"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mTvStandardSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="75dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:text="(3.3MB)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mLayoutHeight"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/mTvHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="高清"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mTvHeightSize"
+            android:layout_width="wrap_content"
+            android:minWidth="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:text="(5.3MB)" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="1dp"
+            android:layout_toRightOf="@+id/mTvSuperSize"
+            android:background="@mipmap/libbase_ic_svip_img_tag"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mLayoutSuper"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/mTvSuper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="超清"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mTvSuperSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/mTvSuper"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:text="(19.0MB)" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_toRightOf="@+id/mTvSuperSize"
+            android:background="@mipmap/libbase_ic_svip_img_tag" />
+    </RelativeLayout>
+
+</LinearLayout>

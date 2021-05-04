@@ -11,7 +11,7 @@ import androidx.annotation.StringDef;
  * E-Mail : 303767416@qq.com
  * 2020/10/27
  */
-@StringDef({FileType.UNSPECIFY, FileType.IMAGE, FileType.TXT, FileType.VIDEO, FileType.AUDIO, FileType.APK, FileType.SRT})
+@StringDef({FileType.UNSPECIFY, FileType.IMAGE, FileType.TXT, FileType.VIDEO, FileType.AUDIO, FileType.APK, FileType.SRT, FileType.LOG})
 public @interface FileType {
 
     String UNSPECIFY = "unspecify";
@@ -21,5 +21,6 @@ public @interface FileType {
     String AUDIO = "audio";
     String APK = "apk";
     String SRT = "srt";
+    String LOG = "log";
 
 }
