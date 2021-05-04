@@ -131,21 +131,31 @@ public class MvpBaseActivity<T extends IBasePresenter> extends BaseActivity impl
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.libbase_framework_mvp_activity_base, null);//
+        mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.libbase_framework_mvp_activity_base, null);
+        initToolBar();
 
-        mToolbar = (ViewGroup) mRootView.findViewById(R.id.toolbar);
-        mImgTitleLeft = (ImageView) mRootView.findViewById(R.id.img_title_left);
-        mImgTitleRight = (ImageView) mRootView.findViewById(R.id.img_title_right);
-        mTvTitle = (TextView) mRootView.findViewById(R.id.tv_title);
-        mTvTitleLeft = (TextView) mRootView.findViewById(R.id.tv_title_left);
-        mTvTitleRight = (TextView) mRootView.findViewById(R.id.tv_title_right);
-        mImgTitleLeftSecond = mRootView.findViewById(R.id.img_title_left_second);
-        mMailLayout = mRootView.findViewById(R.id.mMailLayout);
-        mImageMail = mRootView.findViewById(R.id.mImageMail);
-        mTvMailCount = mRootView.findViewById(R.id.mTvMailCount);
-        mImageMailPoint = mRootView.findViewById(R.id.mImageMailPoint);
-        mToolbarDivider = mRootView.findViewById(R.id.divider_toolbar);
         View view = LayoutInflater.from(this).inflate(layoutResID, null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        if (!isRelativeFragment()) {
+            layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar);
+        }
+        view.setLayoutParams(layoutParams);
+        mRootView.addView(view);
+        super.setContentView(mRootView);
+
+        rippleClickDelay(mImgTitleLeft, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    public void setContentView(View view) {
+        mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.libbase_framework_mvp_activity_base, null);
+        initToolBar();
+
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         if (!isRelativeFragment()) {
             layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar);
@@ -384,6 +394,21 @@ public class MvpBaseActivity<T extends IBasePresenter> extends BaseActivity impl
             ActivityOnResult activityOnResult = new ActivityOnResult(this);
             activityOnResult.startForResult(intnet, requestCode, callback);
         }
+    }
+
+    protected void initToolBar(){
+        mToolbar = (ViewGroup) mRootView.findViewById(R.id.toolbar);
+        mImgTitleLeft = (ImageView) mRootView.findViewById(R.id.img_title_left);
+        mImgTitleRight = (ImageView) mRootView.findViewById(R.id.img_title_right);
+        mTvTitle = (TextView) mRootView.findViewById(R.id.tv_title);
+        mTvTitleLeft = (TextView) mRootView.findViewById(R.id.tv_title_left);
+        mTvTitleRight = (TextView) mRootView.findViewById(R.id.tv_title_right);
+        mImgTitleLeftSecond = mRootView.findViewById(R.id.img_title_left_second);
+        mMailLayout = mRootView.findViewById(R.id.mMailLayout);
+        mImageMail = mRootView.findViewById(R.id.mImageMail);
+        mTvMailCount = mRootView.findViewById(R.id.mTvMailCount);
+        mImageMailPoint = mRootView.findViewById(R.id.mImageMailPoint);
+        mToolbarDivider = mRootView.findViewById(R.id.divider_toolbar);
     }
 
 }

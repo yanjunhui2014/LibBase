@@ -16,6 +16,7 @@ public abstract class MvpBaseFragmentActivity<T extends Fragment> extends MvpBas
 
     protected abstract T createFragment();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mainBinding.btnDownload) {
-
+            DownloadTestActivity.createJump(this)
+                    .navigation();
         } else if (v == mainBinding.btnVideoPlay) {
 
         }

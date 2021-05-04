@@ -3,7 +3,6 @@ package com.milo.libbase.utils.download;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.milo.libbase.utils.FileUtils;
 import com.milo.libbase.utils.LogUtils;
 import com.milo.libbase.utils.Utils;
 
@@ -63,7 +62,7 @@ public class FileDownloadConsumer implements Runnable, DownloadConsumer {
 
     @Override
     public void run() {
-        if (FileUtils.isExist(task.getSavePath()) && !task.forceReDownload()) {
+        if (Utils.isExist(task.getSavePath()) && !task.forceReDownload()) {
             onDone();
             return;
         }
@@ -193,7 +192,7 @@ public class FileDownloadConsumer implements Runnable, DownloadConsumer {
      * 下载完成后重命名
      */
     private void renameWhenDownloadOk() {
-        if (FileUtils.rename(tempFile.toString(), task.getSavePath())) {
+        if (Utils.rename(tempFile.toString(), task.getSavePath())) {
             onDone();
         } else {
             onError("文件重命名时发生错误:" + task.getSavePath());

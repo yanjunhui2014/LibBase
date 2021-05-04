@@ -7,8 +7,6 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.milo.libbase.utils.FileUtils;
 import com.milo.libbase.utils.Utils;
 
 import java.util.ArrayList;
@@ -218,7 +216,7 @@ public class FileFactory extends AbsFileFactory {
                 }
 
                 //创建用到的文件夹
-                FileUtils.mkdir(builder.toString());
+                Utils.mkdir(builder.toString());
 
                 builder.append("/");
                 builder.append(fileName);
@@ -263,7 +261,7 @@ public class FileFactory extends AbsFileFactory {
                 }
 
                 //创建用到的文件夹
-                FileUtils.mkdir(builder.toString());
+                Utils.mkdir(builder.toString());
 
                 return builder.toString();
             }

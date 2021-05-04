@@ -3,6 +3,7 @@ package com.milo.libbase.demo.ui;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.milo.libbase.demo.ui.presenter.DownloadTestPresenter;
 import com.milo.libbase.framework.OriginJump;
 import com.milo.libbase.framework.mvp.MvpBaseFragmentActivity;
 
@@ -24,7 +25,7 @@ public class DownloadTestActivity extends MvpBaseFragmentActivity<DownloadTestFr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        new DownloadTestPresenter(mFragment);
+        new DownloadTestPresenter(mFragment);
     }
 
     @Override

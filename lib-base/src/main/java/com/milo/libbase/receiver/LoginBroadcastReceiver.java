@@ -18,6 +18,8 @@ public class LoginBroadcastReceiver extends BroadcastReceiver {
         void onLogOutSuccess();
     }
 
+    public LoginBroadcastReceiver(){}
+
     public LoginBroadcastReceiver(LoginListener loginListener) {
         mLoginListener = loginListener;
     }
