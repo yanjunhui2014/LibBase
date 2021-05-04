@@ -7,7 +7,7 @@ import com.milo.libbase.utils.LogUtils;
 import com.milo.libbase.utils.filefactory.FileFactory;
 import com.milo.libbase.utils.filefactory.FileType;
 import com.milo.libbase.widget.videoview.DefinitionPopupWindow;
-import com.milo.libbase.widget.videoview.FZVideoDefinition;
+import com.milo.libbase.widget.videoview.VideoDefinition;
 
 /**
  * Title：
@@ -92,12 +92,12 @@ public class LibBase {
             if (this.definitionPermission == null) {
                 this.definitionPermission = new DefinitionPopupWindow.DefinitionPermission() {
                     @Override
-                    public boolean hasPermission(FZVideoDefinition videoDefinition) {
+                    public boolean hasPermission(VideoDefinition videoDefinition) {
                         return true;
                     }
 
                     @Override
-                    public void requestPermission(Object videoView, FZVideoDefinition videoDefinition) {
+                    public void requestPermission(Object videoView, VideoDefinition videoDefinition) {
 
                     }
                 };

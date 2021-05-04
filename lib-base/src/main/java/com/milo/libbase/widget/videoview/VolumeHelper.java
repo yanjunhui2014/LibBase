@@ -17,7 +17,7 @@ import java.lang.annotation.RetentionPolicy;
  * E-Mail : 303767416@qq.com
  * 2018/9/23 13:08
  */
-public class FZVolumeHelper {
+public class VolumeHelper {
 
     private final String  TAG     = "FZVolumeHelper";
     private final boolean OpenLog = true;
@@ -51,12 +51,12 @@ public class FZVolumeHelper {
     public @interface FLAG {
     }
 
-    private static FZVolumeHelper mInstacne;
+    private static VolumeHelper mInstacne;
 
-    public static FZVolumeHelper getInstance(Context context) {
-        synchronized (FZVolumeHelper.class) {
+    public static VolumeHelper getInstance(Context context) {
+        synchronized (VolumeHelper.class) {
             if (mInstacne == null) {
-                mInstacne = new FZVolumeHelper(context);
+                mInstacne = new VolumeHelper(context);
             }
         }
         return mInstacne;
@@ -67,7 +67,7 @@ public class FZVolumeHelper {
      *
      * @param context 上下文
      */
-    private FZVolumeHelper(Context context) {
+    private VolumeHelper(Context context) {
         audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     }
 
@@ -97,7 +97,7 @@ public class FZVolumeHelper {
      * @param step step
      * @return this
      */
-    public FZVolumeHelper setVoiceStep100(int step) {
+    public VolumeHelper setVoiceStep100(int step) {
         VOICE_STEP_100 = step;
         return this;
     }
@@ -108,7 +108,7 @@ public class FZVolumeHelper {
      * @param type
      * @return
      */
-    public FZVolumeHelper setAudioType(@TYPE int type) {
+    public VolumeHelper setAudioType(@TYPE int type) {
         NOW_AUDIO_TYPE = type;
         return this;
     }
@@ -119,17 +119,17 @@ public class FZVolumeHelper {
      * @param flag
      * @return
      */
-    public FZVolumeHelper setFlag(@FLAG int flag) {
+    public VolumeHelper setFlag(@FLAG int flag) {
         NOW_FLAG = flag;
         return this;
     }
 
-    public FZVolumeHelper addVoiceSystem() {
+    public VolumeHelper addVoiceSystem() {
         audioManager.adjustStreamVolume(NOW_AUDIO_TYPE, AudioManager.ADJUST_RAISE, NOW_FLAG);
         return this;
     }
 
-    public FZVolumeHelper subVoiceSystem() {
+    public VolumeHelper subVoiceSystem() {
         audioManager.adjustStreamVolume(NOW_AUDIO_TYPE, AudioManager.ADJUST_LOWER, NOW_FLAG);
         return this;
     }

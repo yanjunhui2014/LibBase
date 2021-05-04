@@ -16,17 +16,17 @@ import android.view.WindowManager;
  * E-Mail : 303767416@qq.com
  * 2018/9/23 17:48
  */
-public class FZBrightnessHelper {
+public class BrightnessHelper {
 
-    private static FZBrightnessHelper mInstance;
+    private static BrightnessHelper mInstance;
 
-    private FZBrightnessHelper() {
+    private BrightnessHelper() {
     }
 
-    public static FZBrightnessHelper getInstance() {
-        synchronized (FZBrightnessHelper.class) {
+    public static BrightnessHelper getInstance() {
+        synchronized (BrightnessHelper.class) {
             if (mInstance == null) {
-                mInstance = new FZBrightnessHelper();
+                mInstance = new BrightnessHelper();
             }
         }
         return mInstance;

@@ -9,7 +9,7 @@ package com.milo.libbase.widget.videoview;
  * E-Mail : 303767416@qq.com
  * 2018/12/4 18:30
  */
-public class FZVideoData {
+public class VideoData {
 
     /**
      * 视频URL
@@ -23,7 +23,7 @@ public class FZVideoData {
     /**
      * 视频清晰度
      */
-    public FZVideoDefinition mVideoDefinition;
+    public VideoDefinition mVideoDefinition;
 
     /**
      * 构造，默认标清视频
@@ -31,10 +31,10 @@ public class FZVideoData {
      * @param videoUrl  - 地址
      * @param videoSize - 大小
      */
-    public FZVideoData(String videoUrl, String videoSize) {
+    public VideoData(String videoUrl, String videoSize) {
         this.mVideoUrl = videoUrl;
         this.mVideoSize = videoSize;
-        this.mVideoDefinition = FZVideoDefinition.STANDARD;
+        this.mVideoDefinition = VideoDefinition.STANDARD;
     }
 
 
@@ -43,7 +43,7 @@ public class FZVideoData {
      * @param videoSize       - 大小
      * @param videoDefinition - 清晰度
      */
-    public FZVideoData(String videoUrl, String videoSize, FZVideoDefinition videoDefinition) {
+    public VideoData(String videoUrl, String videoSize, VideoDefinition videoDefinition) {
         this.mVideoUrl = videoUrl;
         this.mVideoSize = videoSize;
         this.mVideoDefinition = videoDefinition;

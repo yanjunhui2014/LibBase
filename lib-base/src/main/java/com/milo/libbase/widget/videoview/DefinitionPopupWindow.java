@@ -32,8 +32,8 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
     private Context mContext;
     private T       mVideoView;
 
-    private Map<FZVideoDefinition, FZVideoData> mVideoDefinitionMap;
-    private DefinitionPermission<T>             mDefinitionPermission;
+    private Map<VideoDefinition, VideoData> mVideoDefinitionMap;
+    private DefinitionPermission<T>         mDefinitionPermission;
 
     private ViewGroup mLayoutStandard;
     private ViewGroup mLayoutHeight;
@@ -64,7 +64,7 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
          * @param videoDefinition - 清晰度
          * @param videoUrl        - 视频地址
          */
-        void onDefiniChanged(FZVideoDefinition videoDefinition, String videoUrl);
+        void onDefiniChanged(VideoDefinition videoDefinition, String videoUrl);
 
     }
 
@@ -79,23 +79,23 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
          * @param videoDefinition
          * @return
          */
-        boolean hasPermission(FZVideoDefinition videoDefinition);
+        boolean hasPermission(VideoDefinition videoDefinition);
 
         /**
          * 申请权限
          *
          * @return
          */
-        void requestPermission(T videoView, FZVideoDefinition videoDefinition);
+        void requestPermission(T videoView, VideoDefinition videoDefinition);
 
     }
 
-    public DefinitionPopupWindow(@NonNull Context context, T videoView, @NonNull Map<FZVideoDefinition, FZVideoData> videoDefinitionMap,
+    public DefinitionPopupWindow(@NonNull Context context, T videoView, @NonNull Map<VideoDefinition, VideoData> videoDefinitionMap,
                                  @NonNull DefinitionPopupWindow.DefinitionChangedListener definitionChangedListener) {
         this(context, videoView, videoDefinitionMap, AppConfig.libBase.getDefinitionPermission(), definitionChangedListener);
     }
 
-    public DefinitionPopupWindow(@NonNull Context context, T videoView, @NonNull Map<FZVideoDefinition, FZVideoData> videoDefinitionMap,
+    public DefinitionPopupWindow(@NonNull Context context, T videoView, @NonNull Map<VideoDefinition, VideoData> videoDefinitionMap,
                                  @NonNull DefinitionPermission<T> definitionPermission, @NonNull DefinitionPopupWindow.DefinitionChangedListener definitionChangedListener) {
         super(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         this.mContext = context;
@@ -109,20 +109,20 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v == mLayoutStandard) {
-            mDefinitionChangedListener.onDefiniChanged(FZVideoDefinition.STANDARD, mVideoDefinitionMap.get(FZVideoDefinition.STANDARD).mVideoUrl);
+            mDefinitionChangedListener.onDefiniChanged(VideoDefinition.STANDARD, mVideoDefinitionMap.get(VideoDefinition.STANDARD).mVideoUrl);
             dismiss();
         } else if (v == mLayoutHeight) {
-            mDefinitionChangedListener.onDefiniChanged(FZVideoDefinition.HEIGHT, mVideoDefinitionMap.get(FZVideoDefinition.HEIGHT).mVideoUrl);
+            mDefinitionChangedListener.onDefiniChanged(VideoDefinition.HEIGHT, mVideoDefinitionMap.get(VideoDefinition.HEIGHT).mVideoUrl);
             dismiss();
         } else if (v == mLayoutSuper) {
             if(mDefinitionPermission != null) {
-                if (mDefinitionPermission.hasPermission(FZVideoDefinition.SUPER)) {
-                    mDefinitionChangedListener.onDefiniChanged(FZVideoDefinition.SUPER, mVideoDefinitionMap.get(FZVideoDefinition.SUPER).mVideoUrl);
+                if (mDefinitionPermission.hasPermission(VideoDefinition.SUPER)) {
+                    mDefinitionChangedListener.onDefiniChanged(VideoDefinition.SUPER, mVideoDefinitionMap.get(VideoDefinition.SUPER).mVideoUrl);
                 } else {
-                    mDefinitionPermission.requestPermission(mVideoView, FZVideoDefinition.SUPER);
+                    mDefinitionPermission.requestPermission(mVideoView, VideoDefinition.SUPER);
                 }
             } else {
-                mDefinitionChangedListener.onDefiniChanged(FZVideoDefinition.SUPER, mVideoDefinitionMap.get(FZVideoDefinition.SUPER).mVideoUrl);
+                mDefinitionChangedListener.onDefiniChanged(VideoDefinition.SUPER, mVideoDefinitionMap.get(VideoDefinition.SUPER).mVideoUrl);
             }
             dismiss();
         }
@@ -140,18 +140,18 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
 
         mTvStandard = contentView.findViewById(R.id.mTvStandard);
         mTvStandardSize = contentView.findViewById(R.id.mTvStandardSize);
-        mTvStandardSize.setText("(" + mVideoDefinitionMap.get(FZVideoDefinition.STANDARD).mVideoSize + ")");
+        mTvStandardSize.setText("(" + mVideoDefinitionMap.get(VideoDefinition.STANDARD).mVideoSize + ")");
         mTvHeight = contentView.findViewById(R.id.mTvHeight);
         mTvHeightSize = contentView.findViewById(R.id.mTvHeightSize);
         mTvSuper = contentView.findViewById(R.id.mTvSuper);
         mTvSuperSize = contentView.findViewById(R.id.mTvSuperSize);
 
 
-        for (Map.Entry<FZVideoDefinition, FZVideoData> item : mVideoDefinitionMap.entrySet()) {
-            if (item.getKey() == FZVideoDefinition.HEIGHT && item.getValue() != null) {
+        for (Map.Entry<VideoDefinition, VideoData> item : mVideoDefinitionMap.entrySet()) {
+            if (item.getKey() == VideoDefinition.HEIGHT && item.getValue() != null) {
                 mLayoutHeight.setVisibility(View.VISIBLE);
                 mTvHeightSize.setText("(" + item.getValue().mVideoSize + ")");
-            } else if (item.getKey() == FZVideoDefinition.SUPER && item.getValue() != null) {
+            } else if (item.getKey() == VideoDefinition.SUPER && item.getValue() != null) {
                 mLayoutSuper.setVisibility(View.VISIBLE);
                 mTvSuperSize.setText("(" + item.getValue().mVideoSize + ")");
             }
@@ -184,7 +184,7 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
      *
      * @param videoDefinition
      */
-    public void setCurrentVideoDefinition(FZVideoDefinition videoDefinition) {
+    public void setCurrentVideoDefinition(VideoDefinition videoDefinition) {
         mTvStandard.setTextColor(Color.WHITE);
         mTvStandardSize.setTextColor(Color.WHITE);
         mTvHeight.setTextColor(Color.WHITE);
@@ -192,13 +192,13 @@ public class DefinitionPopupWindow<T> extends PopupWindow implements View.OnClic
         mTvSuper.setTextColor(Color.WHITE);
         mTvSuperSize.setTextColor(Color.WHITE);
 
-        if (videoDefinition == FZVideoDefinition.STANDARD) {
+        if (videoDefinition == VideoDefinition.STANDARD) {
             mTvStandard.setTextColor(mContext.getResources().getColor(R.color.libbase_c1));
             mTvStandardSize.setTextColor(mContext.getResources().getColor(R.color.libbase_c1));
-        } else if (videoDefinition == FZVideoDefinition.HEIGHT) {
+        } else if (videoDefinition == VideoDefinition.HEIGHT) {
             mTvHeight.setTextColor(mContext.getResources().getColor(R.color.libbase_c1));
             mTvHeightSize.setTextColor(mContext.getResources().getColor(R.color.libbase_c1));
-        } else if (videoDefinition == FZVideoDefinition.SUPER) {
+        } else if (videoDefinition == VideoDefinition.SUPER) {
             mTvSuper.setTextColor(mContext.getResources().getColor(R.color.libbase_c1));
             mTvSuperSize.setTextColor(mContext.getResources().getColor(R.color.libbase_c1));
         }

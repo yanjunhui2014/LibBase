@@ -11,11 +11,11 @@ package com.milo.libbase.widget.videoview;
  */
 public interface IVideoView<T> {
 
-    void prepare(FZVideoDefinition definition);
+    void prepare(VideoDefinition definition);
 
-    void prepare(FZVideoDefinition definition, String picUrl);
+    void prepare(VideoDefinition definition, String picUrl);
 
-    void prepare(FZVideoDefinition definition, String picUrl, String audioUrl);
+    void prepare(VideoDefinition definition, String picUrl, String audioUrl);
 
     void prepare(String url);
 

@@ -25,7 +25,7 @@ import com.milo.libbase.utils.Utils;
  * E-Mail : 303767416@qq.com
  * 2018/9/23 14:39
  */
-public class FZPercentVH {
+public class PercentVH {
 
     private Context mContext;
 
@@ -37,7 +37,7 @@ public class FZPercentVH {
     private boolean mAttached = false;
     private int mType = Type.VOLUME;
 
-    public FZPercentVH(Context context) {
+    public PercentVH(Context context) {
         this.mContext = context;
         init();
     }
@@ -69,11 +69,11 @@ public class FZPercentVH {
         this.mType = type;
         switch (type) {
             case 1:
-                setPercent(FZVolumeHelper.getInstance(mContext).get100CurrentVolume());
+                setPercent(VolumeHelper.getInstance(mContext).get100CurrentVolume());
                 break;
             case 2:
                 mImageVolume.setBackgroundResource(R.mipmap.libbase_ic_brightness);
-                setPercent(FZVolumeHelper.getInstance(mContext).get100CurrentVolume());
+                setPercent(VolumeHelper.getInstance(mContext).get100CurrentVolume());
                 break;
         }
     }

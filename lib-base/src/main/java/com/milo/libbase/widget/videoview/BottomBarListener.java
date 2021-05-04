@@ -18,6 +18,6 @@ public interface BottomBarListener {
 
     void onWholeScreenClick(View v, int scaleType);
 
-    void onDefinitionChanged(FZVideoDefinition definition, String videoUrl);
+    void onDefinitionChanged(VideoDefinition definition, String videoUrl);
 
 }

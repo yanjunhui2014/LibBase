@@ -60,10 +60,10 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
     protected boolean interceptMove;
     protected long    actionDownTime;
 
-    protected FZVideoDefinition curVideoDefinition;
+    protected VideoDefinition curVideoDefinition;
 
-    public    TextView    mTvSrt;
-    protected FZPercentVH mPercentVH;
+    public    TextView  mTvSrt;
+    protected PercentVH mPercentVH;
 
     private List<? extends SrtData> mSrtDataList = new ArrayList<>();
 
@@ -89,8 +89,8 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
 
     protected VideoCommonListener commonListener;
 
-    private Map<FZVideoDefinition, FZVideoData>             definitionMap;
-    private DefinitionPopupWindow<? extends BaseVideoView>  definitionPopupWinwdow;
+    private Map<VideoDefinition, VideoData>                definitionMap;
+    private DefinitionPopupWindow<? extends BaseVideoView> definitionPopupWinwdow;
     private DefinitionPopupWindow.DefinitionChangedListener definitionChangedListener;
 
     private SpeedPopupWindow                     speedPopupWindow;
@@ -159,21 +159,21 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
     }
 
     @Override
-    public void prepare(FZVideoDefinition definition) {
+    public void prepare(VideoDefinition definition) {
         prepare(definition, null);
     }
 
     @Override
-    public void prepare(FZVideoDefinition definition, String picUrl) {
+    public void prepare(VideoDefinition definition, String picUrl) {
         prepare(definition, picUrl, null);
     }
 
     @Override
-    public void prepare(FZVideoDefinition definition, String picUrl, String audioUrl) {
+    public void prepare(VideoDefinition definition, String picUrl, String audioUrl) {
         try {
             this.curVideoDefinition = definition;
             bottomBar.getDefinitionTextView().setText(getDefinitionText(definition));
-            FZVideoData videoData = definitionMap.get(definition);
+            VideoData videoData = definitionMap.get(definition);
             prepare(videoData.mVideoUrl, picUrl, audioUrl);
         } catch (Exception e) {
             Toast.makeText(getContext(), String.format("%s视频播放错误", getDefinitionText(definition)), Toast.LENGTH_SHORT).show();
@@ -310,10 +310,10 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
                 startX = event.getX();
                 startY = event.getY();
                 if (volumeEnable) {
-                    volumeValue = FZVolumeHelper.getInstance(getContext()).get100CurrentVolume();
+                    volumeValue = VolumeHelper.getInstance(getContext()).get100CurrentVolume();
                 }
                 if (brightnessEnable) {
-                    brightValue = FZBrightnessHelper.getInstance().getWindowBrightness(getContext());
+                    brightValue = BrightnessHelper.getInstance().getWindowBrightness(getContext());
                 }
                 break;
             case MotionEvent.ACTION_MOVE: {
@@ -327,29 +327,29 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
                 if (isLeftHalfScreen(event.getX()) && brightnessEnable) {
                     isLeftScreen = true;
                     int brightnessValue = brightValue - moveY / 3;
-                    FZBrightnessHelper.getInstance().setWindowBrightness(getContext(), brightnessValue);
+                    BrightnessHelper.getInstance().setWindowBrightness(getContext(), brightnessValue);
                     if (mPercentVH == null) {
-                        mPercentVH = new FZPercentVH(getContext());
+                        mPercentVH = new PercentVH(getContext());
                     }
-                    mPercentVH.setType(FZPercentVH.Type.BRIGHTNESS);
+                    mPercentVH.setType(PercentVH.Type.BRIGHTNESS);
                     mPercentVH.attach(this);
-                    mPercentVH.setPercent(FZBrightnessHelper.getInstance().get100CurrentBrightness(getContext()));
+                    mPercentVH.setPercent(BrightnessHelper.getInstance().get100CurrentBrightness(getContext()));
                     return true;
                 } else if (!isLeftScreen && volumeEnable) {
-                    FZVolumeHelper.getInstance(getContext()).setVoice100(volumeValue - moveY / 9);
+                    VolumeHelper.getInstance(getContext()).setVoice100(volumeValue - moveY / 9);
                     if (mPercentVH == null) {
-                        mPercentVH = new FZPercentVH(getContext());
+                        mPercentVH = new PercentVH(getContext());
                     }
-                    mPercentVH.setType(FZPercentVH.Type.VOLUME);
+                    mPercentVH.setType(PercentVH.Type.VOLUME);
                     mPercentVH.attach(this);
-                    mPercentVH.setPercent(FZVolumeHelper.getInstance(getContext()).get100CurrentVolume());
+                    mPercentVH.setPercent(VolumeHelper.getInstance(getContext()).get100CurrentVolume());
                     return true;
                 }
             }
             break;
             case MotionEvent.ACTION_UP:
                 isLeftScreen = false;
-                volumeValue = FZVolumeHelper.getInstance(getContext()).get100CurrentVolume();
+                volumeValue = VolumeHelper.getInstance(getContext()).get100CurrentVolume();
                 float endX = event.getX();
                 float endY = event.getY();
 
@@ -524,7 +524,7 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
                 public void onClick(View v) {
                     showDefinitionPopupWindow(new DefinitionPopupWindow.DefinitionChangedListener() {
                         @Override
-                        public void onDefiniChanged(FZVideoDefinition videoDefinition, String videoUrl) {
+                        public void onDefiniChanged(VideoDefinition videoDefinition, String videoUrl) {
                             if (definitionChangedListener != null) {
                                 definitionChangedListener.onDefiniChanged(videoDefinition, videoUrl);
                             }
@@ -573,10 +573,10 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
         }
     }
 
-    public String getDefinitionText(FZVideoDefinition videoDefinition) {
-        if (videoDefinition == FZVideoDefinition.STANDARD) {
+    public String getDefinitionText(VideoDefinition videoDefinition) {
+        if (videoDefinition == VideoDefinition.STANDARD) {
             return "标清";
-        } else if (videoDefinition == FZVideoDefinition.HEIGHT) {
+        } else if (videoDefinition == VideoDefinition.HEIGHT) {
             return "高清";
         } else {
             return "超清";
