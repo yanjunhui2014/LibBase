@@ -6,6 +6,6 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/lib_childbase_fz_childcompat_toolbar_base"/>
+        layout="@layout/libbase_framework_mvp_toolbar_base"/>
 
 </RelativeLayout>

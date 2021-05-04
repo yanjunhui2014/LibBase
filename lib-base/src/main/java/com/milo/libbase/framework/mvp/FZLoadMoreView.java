@@ -27,7 +27,7 @@ public class FZLoadMoreView implements FZILoadMoreView {
     }
 
     private void initView(){
-        mRootView = LayoutInflater.from(mContext).inflate(R.layout.lib_childbase_fz_view_more_vertical, null);
+        mRootView = LayoutInflater.from(mContext).inflate(R.layout.libbase_framework_view_more_vertical, null);
         mProgressBar = mRootView.findViewById(R.id.progressBar);
         mTvNoMore = mRootView.findViewById(R.id.tv_no_more) ;
     }

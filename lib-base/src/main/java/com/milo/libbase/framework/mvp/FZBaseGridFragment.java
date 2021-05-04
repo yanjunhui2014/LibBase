@@ -21,7 +21,7 @@ public class FZBaseGridFragment<T extends IBasePresenter> extends FZBaseFragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.lib_childbase_fz_fragment_base_list, container, false);
+        View rootView = inflater.inflate(R.layout.libbase_framework_mvp_fragment_base_list, container, false);
 
         initView((ViewGroup) rootView);
 

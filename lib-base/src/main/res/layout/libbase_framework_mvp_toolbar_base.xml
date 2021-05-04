@@ -28,7 +28,7 @@
         android:background="?attr/actionBarItemBackground"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:src="@mipmap/nav_icon_back_black"
+        android:src="@mipmap/libbase_nav_icon_back_black"
         tools:ignore="ContentDescription" />
 
     <ImageView
@@ -39,7 +39,7 @@
         android:background="?attr/actionBarItemBackground"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:src="@mipmap/nav_icon_close_black"
+        android:src="@mipmap/libbase_nav_icon_close_black"
         android:visibility="gone"
         tools:ignore="ContentDescription"
         tools:visibility="visible" />
@@ -99,7 +99,7 @@
         android:layout_alignTop="@id/img_title_right"
         android:layout_marginRight="-3dp"
         android:layout_marginTop="-5dp"
-        android:src="@drawable/img_circle_red"
+        android:src="@drawable/libbase_shape_oval_red"
         android:visibility="gone"
         tools:visibility="visible" />
 
@@ -120,7 +120,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:background="?attr/actionBarItemBackground"
-            android:src="@mipmap/nav_icon_msg_black" />
+            android:src="@mipmap/libbase_nav_icon_msg_black" />
 
         <TextView
             android:id="@+id/mTvMailCount"
@@ -129,7 +129,7 @@
             android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp"
             android:layout_marginTop="3dp"
-            android:background="@drawable/img_circle_red"
+            android:background="@drawable/libbase_shape_oval_red"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="9sp"
@@ -146,7 +146,7 @@
             android:layout_marginEnd="11dp"
             android:layout_marginRight="11dp"
             android:layout_marginTop="7dp"
-            android:background="@drawable/img_circle_red"
+            android:background="@drawable/libbase_shape_oval_red"
             android:gravity="center"
             android:visibility="gone" />
     </FrameLayout>

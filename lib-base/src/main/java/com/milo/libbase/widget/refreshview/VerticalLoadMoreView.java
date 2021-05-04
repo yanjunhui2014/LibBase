@@ -25,8 +25,8 @@ public class VerticalLoadMoreView implements ILoadMoreView {
 
     public VerticalLoadMoreView(Context context) {
         init(context,
-                context.getString(R.string.lib_ui_place_hold_empty),
-                context.getString(R.string.lib_ui_place_hold_error));
+                context.getString(R.string.libbase_place_hold_empty),
+                context.getString(R.string.libbase_place_hold_error));
     }
 
     public VerticalLoadMoreView(Context context, String textEmpty, String textError) {
@@ -38,9 +38,9 @@ public class VerticalLoadMoreView implements ILoadMoreView {
     }
 
     private void init(Context context, String textEmpty, String textError) {
-        mRootView = LayoutInflater.from(context).inflate(R.layout.lib_ui_view_more_vertical, null);
+        mRootView = LayoutInflater.from(context).inflate(R.layout.libbase_framework_view_more_vertical, null);
         mRootView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                context.getResources().getDimensionPixelSize(R.dimen.lib_ui_height_load_more)));
+                context.getResources().getDimensionPixelSize(R.dimen.libbase_height_load_more)));
         mProgressBar = mRootView.findViewById(R.id.progress_bar);
         mTvNoMore = mRootView.findViewById(R.id.tv_no_more);
         mTextEmpty = textEmpty;

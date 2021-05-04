@@ -19,7 +19,7 @@ public abstract class FZBaseFragmentActivity<T extends Fragment> extends FZBaseA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lib_childbase_fz_childcompat_activity_base_fragment);
+        setContentView(R.layout.libbase_framework_mvp_activity_base_fragment);
         initData();
         addFragment();
     }

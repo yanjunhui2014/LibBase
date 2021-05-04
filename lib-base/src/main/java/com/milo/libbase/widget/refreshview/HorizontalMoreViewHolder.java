@@ -14,7 +14,7 @@ public class HorizontalMoreViewHolder extends VerticalMoreViewHolder {
 
     @Override
     public int getLayoutResId() {
-        return R.layout.lib_ui_view_more_horizontal;
+        return R.layout.libbase_framework_view_more_horizontal;
     }
 
 }

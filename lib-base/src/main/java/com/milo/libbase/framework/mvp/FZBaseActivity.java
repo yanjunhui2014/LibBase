@@ -132,7 +132,7 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.lib_childbase_fz_childcompat_activity_base, null);//
+        mRootView = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.libbase_framework_mvp_activity_base, null);//
 
         mToolbar = (ViewGroup) mRootView.findViewById(R.id.toolbar);
         mImgTitleLeft = (ImageView) mRootView.findViewById(R.id.img_title_left);

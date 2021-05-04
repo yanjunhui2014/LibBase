@@ -39,11 +39,11 @@ public class VerticalMoreViewHolder extends MoreViewHolder {
         mTvNoMore = view.findViewById(R.id.tv_no_more);
 
         if (mTextEmpty == null) {
-            mTextEmpty = mContext.getString(R.string.lib_ui_place_hold_empty);
+            mTextEmpty = mContext.getString(R.string.libbase_place_hold_empty);
         }
 
         if (mTextError == null) {
-            mTextError = mContext.getString(R.string.lib_ui_place_hold_error);
+            mTextError = mContext.getString(R.string.libbase_place_hold_error);
         }
 
         if (view.getLayoutParams() instanceof StaggeredGridLayoutManager.LayoutParams) {
@@ -93,6 +93,6 @@ public class VerticalMoreViewHolder extends MoreViewHolder {
 
     @Override
     public int getLayoutResId() {
-        return R.layout.lib_ui_view_more_vertical;
+        return R.layout.libbase_framework_view_more_vertical;
     }
 }

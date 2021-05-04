@@ -32,7 +32,7 @@ public class FZBaseRecyclerFragment<T extends IBasePresenter> extends FZBaseFrag
     }
 
     protected View createRootView(LayoutInflater inflater, ViewGroup container) {
-        return inflater.inflate(R.layout.lib_childbase_fz_fragment_base_list, container, false);
+        return inflater.inflate(R.layout.libbase_framework_mvp_fragment_base_list, container, false);
     }
 
     protected void initView(ViewGroup rootView) {

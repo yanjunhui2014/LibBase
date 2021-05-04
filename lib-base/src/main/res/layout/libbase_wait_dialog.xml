@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical|center_horizontal"
-    android:background="@mipmap/lib_ui_bg_waiting"
+    android:background="@mipmap/libbase_bg_waiting"
     android:padding="8dp"
     android:minWidth="100dp">
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
-        android:indeterminateDrawable="@drawable/lib_ui_progress" />
+        android:indeterminateDrawable="@drawable/libbase_shape_progress" />
 
     <TextView
         android:id="@+id/message_tv"

@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="没有更多了"
+        android:text="我是有底线的"
         android:textColor="@color/libbase_c3"
         android:visibility="gone"
         tools:visibility="visible" />

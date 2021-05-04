@@ -34,14 +34,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            tools:text="@string/lib_ui_place_hold_empty" />
+            tools:text="@string/libbase_place_hold_empty" />
 
         <Button
             android:id="@+id/mBtnEmpty"
             android:layout_width="130dp"
             android:layout_height="36dp"
             android:layout_marginTop="18dp"
-            android:background="@drawable/bg_corner4dp_green_stroke"
+            android:background="@drawable/libbase_shape_radius4dp_stroke_c1"
             android:gravity="center"
             tools:text="引导文字"
             android:textColor="#2bc329"

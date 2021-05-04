@@ -40,16 +40,16 @@ public class PlaceHolderView implements IPlaceHolderView {
 
 
     protected void init() {
-        mRootView = mInflater.inflate(R.layout.lib_ui_place_holder_view, null, false);
+        mRootView = mInflater.inflate(R.layout.libbase_placeholder_view, null, false);
         mRootView.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mImg = mRootView.findViewById(R.id.img);
         mTvText = mRootView.findViewById(R.id.tv_text);
         mBtnEmpty = mRootView.findViewById(R.id.mBtnEmpty);
         mPbLoading = mRootView.findViewById(R.id.pb_loading);
-        mTextError = mContext.getString(R.string.lib_ui_place_hold_error);
-        mTextEmpty = mContext.getString(R.string.lib_ui_place_hold_empty);
-        mTextLoading = mContext.getString(R.string.lib_ui_place_hold_load);
+        mTextError = mContext.getString(R.string.libbase_place_hold_error);
+        mTextEmpty = mContext.getString(R.string.libbase_place_hold_empty);
+        mTextLoading = mContext.getString(R.string.libbase_place_hold_load);
 
         mRootView.setOnClickListener(new View.OnClickListener() {
             @Override

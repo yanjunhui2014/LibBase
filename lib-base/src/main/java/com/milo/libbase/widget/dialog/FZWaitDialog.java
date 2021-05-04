@@ -29,13 +29,13 @@ public class FZWaitDialog extends Dialog {
     }
 
     public FZWaitDialog(Context context, int theme) {
-        super(context, R.style.lib_ui_WaitDialogStyle);
+        super(context, R.style.libbase_WaitDialogStyle);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lib_childbase_wait_dialog);
+        setContentView(R.layout.libbase_wait_dialog);
 
         titleTv = (TextView) findViewById(R.id.title_tv);
         msgTv = (TextView) findViewById(R.id.message_tv);
