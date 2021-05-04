@@ -16,6 +16,7 @@ import com.danikula.videocache.HttpProxyCacheServer;
 import com.danikula.videocache.file.FileNameGenerator;
 import com.milo.libbase.utils.filefactory.FileFactory;
 import com.milo.libbase.utils.filefactory.FileType;
+import com.orhanobut.logger.Logger;
 
 import java.io.Closeable;
 import java.io.File;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 
@@ -43,6 +45,8 @@ public final class Utils {
 
     private static StringBuilder mFormatBuilder = new StringBuilder();
     private static Formatter     mFormatter;
+
+    private static long mLastClickTime;
 
     public static String getFileName(String urlOrName) {
         if (TextUtils.isEmpty(urlOrName)) {
@@ -287,6 +291,44 @@ public final class Utils {
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    public static void writeCommonLog(String tag, String msg) {
+        //        LogUtils.write(CodeLog.obtain(Logger.INFO - 2, tag, sdf2.format(new Date()) + ":" + msg));
+    }
+
+    public static boolean isFastDoubleClick() {
+        long time = System.currentTimeMillis();
+        long timeD = time - mLastClickTime;
+        mLastClickTime = time;
+        return 0 < timeD && timeD < 1000;
+    }
+
+    public static boolean isFastDoubleClick(long interval) {
+        long time = System.currentTimeMillis();
+        long timeD = time - mLastClickTime;
+        mLastClickTime = time;
+        return 0 < timeD && timeD < interval;
+    }
+
+    public static boolean delFileOrDir(String path) {
+        if (path == null || "".equals(path)) {
+            return false;
+        }
+        File file = new File(path);
+        if (file.exists()) {
+            if (file.isFile()) {
+                return file.delete();
+            } else {
+                try {
+                    FileUtils.deleteDirectory(file);
+                    return true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 
 }

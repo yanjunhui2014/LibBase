@@ -5,8 +5,8 @@
 
     <color name="libbase_c2">#333333</color>
     <color name="libbase_c3">#666666</color>
-    <color name="libbase_c4">#999999</color>
 
     <color name="libbase_white">#ffffff</color>
+    <color name="libbase_divider">#bebebe</color>
 
 </resources>

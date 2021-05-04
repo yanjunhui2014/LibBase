@@ -1,6 +1,8 @@
 package com.milo.libbase.demo;
 
-import android.app.Application;
+import androidx.multidex.MultiDexApplication;
+
+import com.milo.libbase.LibBase;
 
 /**
  * Title：
@@ -11,20 +13,13 @@ import android.app.Application;
  * E-Mail : 303767416@qq.com
  * 5/4/21
  */
-public class DemoApplication extends Application {
+public class DemoApplication extends MultiDexApplication {
 
     @Override
-    public void onTerminate() {
-        super.onTerminate();
+    public void onCreate() {
+        super.onCreate();
+        new LibBase.LibBaseBuilder()
+                .build(this);
     }
 
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-    }
-
-    @Override
-    public void onTrimMemory(int level) {
-        super.onTrimMemory(level);
-    }
 }

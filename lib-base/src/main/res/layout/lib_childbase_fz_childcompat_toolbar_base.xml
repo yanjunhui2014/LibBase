@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="?attr/colorPrimary">
+
+    <TextView
+        android:id="@+id/tv_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?attr/actionBarItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/libbase_c1"
+        android:textSize="15sp"
+        android:visibility="gone"
+        tools:text="时代发生"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/img_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?attr/actionBarItemBackground"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@mipmap/nav_icon_back_black"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_title_left_second"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/img_title_left"
+        android:background="?attr/actionBarItemBackground"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@mipmap/nav_icon_close_black"
+        android:visibility="gone"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginStart="80dp"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="@color/libbase_c2"
+        android:textSize="17sp"
+        tools:text="少儿趣配音少儿趣配音少儿趣配音少儿趣配音" />
+
+    <TextView
+        android:id="@+id/tv_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="?attr/actionBarItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/libbase_c1"
+        android:textSize="15sp"
+        android:visibility="gone"
+        tools:text="多的" />
+
+    <ImageView
+        android:id="@+id/img_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="?attr/actionBarItemBackground"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_title_right_point"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_alignRight="@id/img_title_right"
+        android:layout_alignTop="@id/img_title_right"
+        android:layout_marginRight="-3dp"
+        android:layout_marginTop="-5dp"
+        android:src="@drawable/img_circle_red"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/mMailLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/mImageMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="?attr/actionBarItemBackground"
+            android:src="@mipmap/nav_icon_msg_black" />
+
+        <TextView
+            android:id="@+id/mTvMailCount"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/img_circle_red"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="9sp"
+            android:visibility="gone"
+            tools:ignore="SmallSp"
+            tools:text="99"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mImageMailPoint"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/img_circle_red"
+            android:gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/divider_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/libbase_divider" />
+
+</RelativeLayout>
+
+
+
