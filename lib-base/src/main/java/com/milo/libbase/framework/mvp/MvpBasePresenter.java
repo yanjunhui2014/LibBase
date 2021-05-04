@@ -1,9 +1,8 @@
 package com.milo.libbase.framework.mvp;
 
-
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
-public class FZBasePresenter implements IBasePresenter {
+public class MvpBasePresenter implements IBasePresenter {
     protected String TAG = getClass().getSimpleName();
 
     protected CompositeDisposable mCompositeDisposable = new CompositeDisposable();

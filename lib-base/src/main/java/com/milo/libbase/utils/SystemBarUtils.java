@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
  * 1.沉浸式全屏模式
  * 2.状态栏着色模式
  */
-public class FZSystemBarUtils {
+public class SystemBarUtils {
     private static float DEFAULT_ALPHA = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 0.2f : 0.3f;
 
     /**
@@ -543,8 +543,8 @@ public class FZSystemBarUtils {
      * 是否可以设置浅色的状态栏
      */
     public static boolean isCanLightStatusBar() {
-        return FZSystemBarUtils.isFlyme4Later()
-                || FZSystemBarUtils.isMIUI6Later()
+        return SystemBarUtils.isFlyme4Later()
+                || SystemBarUtils.isMIUI6Later()
                 || Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 }

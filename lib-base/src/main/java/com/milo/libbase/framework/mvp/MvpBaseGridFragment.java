@@ -13,7 +13,7 @@ import com.milo.libbase.widget.refreshview.IPlaceHolderView;
 import com.milo.libbase.widget.refreshview.PlaceHolderView;
 import com.milo.libbase.widget.refreshview.xSwipeRefreshLayout.SwipeRefreshGridView;
 
-public class FZBaseGridFragment<T extends IBasePresenter> extends FZBaseFragment<T> implements FZIListDataView {
+public class MvpBaseGridFragment<T extends IBasePresenter> extends MvpBaseFragment<T> implements IListDataView {
 
     protected SwipeRefreshGridView mRefreshGridView;
     protected IPlaceHolderView     mPlaceHolderView;

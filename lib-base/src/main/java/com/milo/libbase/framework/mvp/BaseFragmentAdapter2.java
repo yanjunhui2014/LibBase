@@ -16,11 +16,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
  * Created by Milo  2020/2/27
  * E-Mail : 303767416@qq.com
  */
-public abstract class FZBaseFragmentAdapter2 extends FragmentPagerAdapter {
+public abstract class BaseFragmentAdapter2 extends FragmentPagerAdapter {
 
     protected SparseArray<Fragment> registeredFragments = new SparseArray<>();
 
-    public FZBaseFragmentAdapter2(@NonNull FragmentManager fm) {
+    public BaseFragmentAdapter2(@NonNull FragmentManager fm) {
         super(fm);
     }
 

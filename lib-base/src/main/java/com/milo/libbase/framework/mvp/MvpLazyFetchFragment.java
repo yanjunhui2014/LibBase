@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-public abstract class FZLazyFetchFragment<P extends IBasePresenter> extends FZBaseFragment<P> {
+public abstract class MvpLazyFetchFragment<P extends IBasePresenter> extends MvpBaseFragment<P> {
 
     protected boolean mIsViewCreated;
     protected boolean mIsFetchData;

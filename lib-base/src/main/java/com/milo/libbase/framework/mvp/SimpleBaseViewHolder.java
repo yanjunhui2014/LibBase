@@ -18,7 +18,7 @@ import com.zhl.commonadapter.BaseViewHolder;
  * E-Mail : 303767416@qq.com
  * 2018/12/26 18:19
  */
-public abstract class FZBaseViewHolder<T> extends BaseViewHolder<T> {
+public abstract class SimpleBaseViewHolder<T> extends BaseViewHolder<T> {
     protected String TAG = getClass().getSimpleName();
 
     /**

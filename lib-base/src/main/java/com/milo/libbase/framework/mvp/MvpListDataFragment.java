@@ -14,8 +14,8 @@ import com.milo.libbase.widget.refreshview.base.RefreshListener;
 import com.zhl.commonadapter.BaseViewHolder;
 import com.zhl.commonadapter.CommonRecyclerAdapter;
 
-public abstract class FZListDataFragment<P extends FZListDataContract.Presenter<D>, D> extends FZBaseRecyclerFragment<P>
-        implements FZListDataContract.View<P> {
+public abstract class MvpListDataFragment<P extends MvpListDataContract.Presenter<D>, D> extends MvpBaseRecyclerFragment<P>
+        implements MvpListDataContract.View<P> {
 
     protected CommonRecyclerAdapter<D> mAdapter;
 
@@ -36,7 +36,7 @@ public abstract class FZListDataFragment<P extends FZListDataContract.Presenter<
 
             @Override
             public BaseViewHolder<D> createViewHolder(int type) {
-                return FZListDataFragment.this.createViewHolder();
+                return MvpListDataFragment.this.createViewHolder();
             }
         };
     }
@@ -69,7 +69,7 @@ public abstract class FZListDataFragment<P extends FZListDataContract.Presenter<
         mAdapter.setOnItemClickListener(new CommonRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                FZListDataFragment.this.onItemClick(view, position);
+                MvpListDataFragment.this.onItemClick(view, position);
             }
         });
     }

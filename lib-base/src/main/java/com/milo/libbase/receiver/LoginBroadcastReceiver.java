@@ -6,8 +6,8 @@ import android.content.Intent;
 
 import com.milo.libbase.data.AppConstants;
 
-public class FZLoginBroadcastReceiver extends BroadcastReceiver {
-    private static final String TAG = FZLoginBroadcastReceiver.class.getSimpleName();
+public class LoginBroadcastReceiver extends BroadcastReceiver {
+    private static final String TAG = LoginBroadcastReceiver.class.getSimpleName();
 
     private LoginListener mLoginListener;
 
@@ -18,7 +18,7 @@ public class FZLoginBroadcastReceiver extends BroadcastReceiver {
         void onLogOutSuccess();
     }
 
-    public FZLoginBroadcastReceiver(LoginListener loginListener) {
+    public LoginBroadcastReceiver(LoginListener loginListener) {
         mLoginListener = loginListener;
     }
 

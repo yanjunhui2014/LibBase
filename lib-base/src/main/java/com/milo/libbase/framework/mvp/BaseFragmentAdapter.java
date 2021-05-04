@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @deprecated 这种写法有安全隐患，具体可参照 <a>https://mp.weixin.qq.com/s/MOWdbI5IREjQP1Px-WJY1Q</a>， 使用 {@link FZBaseFragmentAdapter2} 替代
+ * @deprecated 这种写法有安全隐患，具体可参照 <a>https://mp.weixin.qq.com/s/MOWdbI5IREjQP1Px-WJY1Q</a>， 使用 {@link BaseFragmentAdapter2} 替代
  */
 @Deprecated
-public class FZBaseFragmentAdapter extends FragmentPagerAdapter {
+public class BaseFragmentAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments = new ArrayList<Fragment>();
     private List<String>   mTitles   = new ArrayList<>();
 
-    public FZBaseFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public BaseFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }
 
-    public FZBaseFragmentAdapter(FragmentManager fm) {
+    public BaseFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 

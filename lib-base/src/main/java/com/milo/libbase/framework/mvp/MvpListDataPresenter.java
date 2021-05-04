@@ -5,8 +5,8 @@ import com.milo.libbase.data.impl.Response;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class FZListDataPresenter<V extends FZListDataContract.View, M, D> extends FZBasePresenter
-        implements FZListDataContract.Presenter<D> {
+public abstract class MvpListDataPresenter<V extends MvpListDataContract.View, M, D> extends MvpBasePresenter
+        implements MvpListDataContract.Presenter<D> {
 
     protected V mView;
     protected M mModel;
@@ -29,7 +29,7 @@ public abstract class FZListDataPresenter<V extends FZListDataContract.View, M, 
      */
     protected boolean mHasMore = true;
 
-    public FZListDataPresenter(V view, M model) {
+    public MvpListDataPresenter(V view, M model) {
         mView = view;
         mModel = model;
         mView.setPresenter(this);

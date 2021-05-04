@@ -2,9 +2,9 @@ package com.milo.libbase.framework.mvp;
 
 import java.util.List;
 
-public interface FZListDataContract {
+public interface MvpListDataContract {
 
-    interface View<P> extends FZIBaseView<P>, FZIListDataView {
+    interface View<P> extends MvpBaseView<P>, IListDataView {
 
     }
 

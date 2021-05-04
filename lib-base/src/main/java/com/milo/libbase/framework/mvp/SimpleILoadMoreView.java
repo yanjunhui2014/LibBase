@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.milo.libbase.R;
 
-public class FZLoadMoreView implements FZILoadMoreView {
+public class SimpleILoadMoreView implements ILoadMoreView {
 
     private Context mContext;
 
@@ -21,7 +21,7 @@ public class FZLoadMoreView implements FZILoadMoreView {
 
     private View.OnClickListener mOnClickListener;
 
-    public FZLoadMoreView(Context context){
+    public SimpleILoadMoreView(Context context){
         this.mContext = context;
         initView();
     }

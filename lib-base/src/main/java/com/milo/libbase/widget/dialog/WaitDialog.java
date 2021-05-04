@@ -16,7 +16,7 @@ import com.milo.libbase.R;
  * E-Mail : 303767416@qq.com
  * 2019/2/13 16:02
  */
-public class FZWaitDialog extends Dialog {
+public class WaitDialog extends Dialog {
 
     public TextView titleTv;
     public TextView msgTv;
@@ -24,11 +24,11 @@ public class FZWaitDialog extends Dialog {
     public String title;
     public String msg;
 
-    public FZWaitDialog(Context context) {
+    public WaitDialog(Context context) {
         this(context, 0);
     }
 
-    public FZWaitDialog(Context context, int theme) {
+    public WaitDialog(Context context, int theme) {
         super(context, R.style.libbase_WaitDialogStyle);
     }
 

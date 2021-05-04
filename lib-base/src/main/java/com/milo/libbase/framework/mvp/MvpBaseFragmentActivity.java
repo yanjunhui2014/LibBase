@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.milo.libbase.R;
 import com.milo.libbase.utils.LogUtils;
 
-public abstract class FZBaseFragmentActivity<T extends Fragment> extends FZBaseActivity {
+public abstract class MvpBaseFragmentActivity<T extends Fragment> extends MvpBaseActivity {
 
     protected T mFragment;
 

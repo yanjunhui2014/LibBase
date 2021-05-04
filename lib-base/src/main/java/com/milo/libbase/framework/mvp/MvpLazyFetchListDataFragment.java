@@ -5,8 +5,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-public abstract class FZLazyFetchListDataFragment<P extends FZListDataContract.Presenter<D>, D>
-        extends FZListDataFragment<P, D> {
+public abstract class MvpLazyFetchListDataFragment<P extends MvpListDataContract.Presenter<D>, D>
+        extends MvpListDataFragment<P, D> {
 
     protected boolean mIsViewCreated;
     protected boolean mIsFetchData;

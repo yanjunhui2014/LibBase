@@ -12,10 +12,9 @@ import androidx.annotation.Nullable;
 
 import com.milo.libbase.demo.R;
 import com.milo.libbase.demo.ui.contract.DownloadTestContract;
-import com.milo.libbase.framework.mvp.FZBaseFragment;
+import com.milo.libbase.framework.mvp.MvpBaseFragment;
 import com.milo.libbase.utils.ToastUtils;
 import com.milo.libbase.utils.Utils;
-import com.milo.libbase.utils.download.FileDownloader;
 
 /**
  * Title：
@@ -26,7 +25,7 @@ import com.milo.libbase.utils.download.FileDownloader;
  * E-Mail : 303767416@qq.com
  * 2020/12/1
  */
-public class DownloadTestFragment extends FZBaseFragment<DownloadTestContract.Presenter> implements View.OnClickListener, DownloadTestContract.View {
+public class DownloadTestFragment extends MvpBaseFragment<DownloadTestContract.Presenter> implements View.OnClickListener, DownloadTestContract.View {
 
     private TextView mTvCount;
     private TextView mTvStatus;

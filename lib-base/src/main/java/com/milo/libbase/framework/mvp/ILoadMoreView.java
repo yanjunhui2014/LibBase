@@ -4,11 +4,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-/**
- * Created by zhl on 16/2/21.
- * FZILoadMoreView
- */
-public interface FZILoadMoreView {
+public interface ILoadMoreView {
 
     @NonNull
     View getView();

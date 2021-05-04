@@ -9,7 +9,7 @@ package com.milo.libbase.framework.mvp;
  * E-Mail : 303767416@qq.com
  * 2019/1/29 16:52
  */
-public interface FZIBaseView<P> extends IBaseView<P> {
+public interface MvpBaseView<P> extends IBaseView<P> {
 
     void showProgress();
 

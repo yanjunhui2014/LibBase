@@ -10,11 +10,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.milo.libbase.data.AppConstants;
-import com.milo.libbase.receiver.FZLoginBroadcastReceiver;
+import com.milo.libbase.receiver.LoginBroadcastReceiver;
 import com.milo.libbase.utils.Utils;
-import com.milo.libbase.widget.dialog.FZWaitDialog;
-
-import java.lang.annotation.Annotation;
+import com.milo.libbase.widget.dialog.WaitDialog;
 
 /**
  * 标题：fragment基类
@@ -25,16 +23,16 @@ import java.lang.annotation.Annotation;
  * E-Mail : 303767416@qq.com
  * 2018/11/9 11:12
  */
-public class FZBaseFragment<T extends IBasePresenter> extends BaseFragment implements FZIBaseView<T>, ITrackResource, FZLoginBroadcastReceiver.LoginListener {
+public class MvpBaseFragment<T extends IBasePresenter> extends BaseFragment implements MvpBaseView<T>, ITrackResource, LoginBroadcastReceiver.LoginListener {
     protected String TAG = this.getClass().getSimpleName();
 
     protected Activity mActivity;
-    protected T            mPresenter;
-    protected FZWaitDialog mWaitDialog;
+    protected T          mPresenter;
+    protected WaitDialog mWaitDialog;
 
     protected boolean mIsViewCreated;
 
-    private FZLoginBroadcastReceiver mLoginBroadcastReceiver;
+    private LoginBroadcastReceiver mLoginBroadcastReceiver;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +48,7 @@ public class FZBaseFragment<T extends IBasePresenter> extends BaseFragment imple
         mIsViewCreated = true;
         subscribe();
         try {
-            mLoginBroadcastReceiver = new FZLoginBroadcastReceiver(this);
+            mLoginBroadcastReceiver = new LoginBroadcastReceiver(this);
             IntentFilter filter = new IntentFilter();
             filter.addAction(AppConstants.ACTION_LOGIN_SUCCESS);
             filter.addAction(AppConstants.ACTION_LOGOUT_SUCCESS);
@@ -149,7 +147,7 @@ public class FZBaseFragment<T extends IBasePresenter> extends BaseFragment imple
 
     protected void showWaitDialog(String message) {
         if (mWaitDialog == null) {
-            mWaitDialog = new FZWaitDialog(mActivity);
+            mWaitDialog = new WaitDialog(mActivity);
         }
         mWaitDialog.setMessage(message);
         mWaitDialog.show();
@@ -157,7 +155,7 @@ public class FZBaseFragment<T extends IBasePresenter> extends BaseFragment imple
 
     protected void showWaitDialog(String message, DialogInterface.OnCancelListener listener) {
         if (mWaitDialog == null) {
-            mWaitDialog = new FZWaitDialog(mActivity);
+            mWaitDialog = new WaitDialog(mActivity);
             mWaitDialog.setMessage(message);
         }
         mWaitDialog.setMessage(message);
@@ -169,7 +167,7 @@ public class FZBaseFragment<T extends IBasePresenter> extends BaseFragment imple
 
     protected void showWaitDialog(String message, boolean canceledOnTouchOutside, boolean cancelable) {
         if (mWaitDialog == null) {
-            mWaitDialog = new FZWaitDialog(mActivity);
+            mWaitDialog = new WaitDialog(mActivity);
             mWaitDialog.setMessage(message);
         }
         mWaitDialog.setMessage(message);
@@ -189,9 +187,9 @@ public class FZBaseFragment<T extends IBasePresenter> extends BaseFragment imple
      *
      * @return
      */
-    public FZBaseActivity getHoldingActivity() {
-        if (getActivity() != null && getActivity() instanceof FZBaseActivity) {
-            return ((FZBaseActivity) mActivity);
+    public MvpBaseActivity getHoldingActivity() {
+        if (getActivity() != null && getActivity() instanceof MvpBaseActivity) {
+            return ((MvpBaseActivity) mActivity);
         }
         return null;
     }

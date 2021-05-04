@@ -10,16 +10,16 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.milo.libbase.R;
-import com.milo.libbase.utils.FZRecyclerScrollUtil;
+import com.milo.libbase.utils.RecyclerScrollUtil;
 import com.milo.libbase.widget.refreshview.PlaceHolderView;
 import com.milo.libbase.widget.refreshview.xSwipeRefreshLayout.SwipeRefreshRecyclerView;
 
-public class FZBaseRecyclerFragment<T extends IBasePresenter> extends FZBaseFragment<T> implements FZIListDataView {
+public class MvpBaseRecyclerFragment<T extends IBasePresenter> extends MvpBaseFragment<T> implements IListDataView {
 
     protected PlaceHolderView          mPlaceHolderView;
     protected SwipeRefreshRecyclerView mRefreshRecyclerView;
 
-    protected FZRecyclerScrollUtil mScrollUtil;
+    protected RecyclerScrollUtil mScrollUtil;
 
     @Nullable
     @Override
@@ -51,7 +51,7 @@ public class FZBaseRecyclerFragment<T extends IBasePresenter> extends FZBaseFrag
             }
         });
 
-        mScrollUtil = new FZRecyclerScrollUtil();
+        mScrollUtil = new RecyclerScrollUtil();
 
         mRefreshRecyclerView.getRecyclerView().addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

@@ -1,7 +1,7 @@
 package com.milo.libbase.demo.ui.contract;
 
-import com.milo.libbase.framework.mvp.FZIBasePresenter;
-import com.milo.libbase.framework.mvp.FZIBaseView;
+import com.milo.libbase.framework.mvp.MvpBaseView;
+import com.milo.libbase.framework.mvp.IBasePresenter;
 
 /**
  * Title：
@@ -14,13 +14,13 @@ import com.milo.libbase.framework.mvp.FZIBaseView;
  */
 public interface DownloadTestContract {
 
-    interface View extends FZIBaseView<Presenter> {
+    interface View extends MvpBaseView<Presenter> {
         void showDownloadOk(long timeMillis);
 
         void showCount(int cur, int total);
     }
 
-    interface Presenter extends FZIBasePresenter {
+    interface Presenter extends IBasePresenter {
         String getRootPath();
 
         void startDownload();

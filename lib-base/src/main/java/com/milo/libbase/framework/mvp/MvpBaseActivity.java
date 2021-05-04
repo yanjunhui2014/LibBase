@@ -21,13 +21,12 @@ import androidx.core.content.ContextCompat;
 
 import com.milo.libbase.R;
 import com.milo.libbase.data.AppConstants;
-import com.milo.libbase.receiver.FZLoginBroadcastReceiver;
+import com.milo.libbase.receiver.LoginBroadcastReceiver;
 import com.milo.libbase.rxactivity.ActivityOnResult;
-import com.milo.libbase.utils.FZSystemBarUtils;
+import com.milo.libbase.utils.SystemBarUtils;
 import com.milo.libbase.utils.ToastUtils;
 import com.milo.libbase.utils.Utils;
-import com.milo.libbase.widget.dialog.FZWaitDialog;
-
+import com.milo.libbase.widget.dialog.WaitDialog;
 
 /**
  * 标题：
@@ -38,7 +37,7 @@ import com.milo.libbase.widget.dialog.FZWaitDialog;
  * E-Mail : 303767416@qq.com
  * 2019/1/29 15:56
  */
-public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity implements ITrackResource, FZLoginBroadcastReceiver.LoginListener {
+public class MvpBaseActivity<T extends IBasePresenter> extends BaseActivity implements ITrackResource, LoginBroadcastReceiver.LoginListener {
 
     public Activity mActivity;
 
@@ -56,10 +55,10 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
 
     public ViewGroup mToolbar;
 
-    public FZWaitDialog mWaitDialog;
+    public WaitDialog mWaitDialog;
 
-    public  RelativeLayout           mRootView;
-    private FZLoginBroadcastReceiver mLoginBroadcastReceiver;
+    public  RelativeLayout         mRootView;
+    private LoginBroadcastReceiver mLoginBroadcastReceiver;
 
     protected T       mPresenter;
     protected boolean mIsBackPressed;
@@ -69,12 +68,12 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
         super.onCreate(savedInstanceState);
         mActivity = this;
 
-        if (FZSystemBarUtils.isCanLightStatusBar() && tintStatusBar()) {
+        if (SystemBarUtils.isCanLightStatusBar() && tintStatusBar()) {
             setDarkMode(true);
-            FZSystemBarUtils.tintStatusBar(this, ContextCompat.getColor(this, getStatusColor()), 0);
+            SystemBarUtils.tintStatusBar(this, ContextCompat.getColor(this, getStatusColor()), 0);
         }
 
-        mLoginBroadcastReceiver = new FZLoginBroadcastReceiver(this);
+        mLoginBroadcastReceiver = new LoginBroadcastReceiver(this);
         IntentFilter filter = new IntentFilter();
         filter.addAction(AppConstants.ACTION_LOGIN_SUCCESS);
         filter.addAction(AppConstants.ACTION_LOGOUT_SUCCESS);
@@ -274,9 +273,9 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
      */
     public void setDarkMode(boolean isDarkMode) {
         if (isDarkMode) {
-            FZSystemBarUtils.setStatusBarDarkMode(this);
+            SystemBarUtils.setStatusBarDarkMode(this);
         } else {
-            FZSystemBarUtils.setStatusBarLightMode(this);
+            SystemBarUtils.setStatusBarLightMode(this);
         }
     }
 
@@ -310,7 +309,7 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
                 params = (LinearLayout.LayoutParams) statusBar.getLayoutParams();
             }
 
-            params.height = FZSystemBarUtils.getStatusBarHeight(mActivity);
+            params.height = SystemBarUtils.getStatusBarHeight(mActivity);
             statusBar.setLayoutParams(params);
             statusBar.setVisibility(View.VISIBLE);
         }
@@ -318,7 +317,7 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
 
     protected void showWaitDialog(String message) {
         if (mWaitDialog == null) {
-            mWaitDialog = new FZWaitDialog(this);
+            mWaitDialog = new WaitDialog(this);
             mWaitDialog.setMessage(message);
         }
         mWaitDialog.setMessage(message);
@@ -327,7 +326,7 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
 
     protected void showWaitDialog(String message, DialogInterface.OnCancelListener listener) {
         if (mWaitDialog == null) {
-            mWaitDialog = new FZWaitDialog(this);
+            mWaitDialog = new WaitDialog(this);
             mWaitDialog.setMessage(message);
         }
         mWaitDialog.setMessage(message);
@@ -339,7 +338,7 @@ public class FZBaseActivity<T extends IBasePresenter> extends BaseActivity imple
 
     protected void showWaitDialog(String message, boolean canceledOnTouchOutside, boolean cancelable) {
         if (mWaitDialog == null) {
-            mWaitDialog = new FZWaitDialog(this);
+            mWaitDialog = new WaitDialog(this);
             mWaitDialog.setMessage(message);
         }
         mWaitDialog.setMessage(message);

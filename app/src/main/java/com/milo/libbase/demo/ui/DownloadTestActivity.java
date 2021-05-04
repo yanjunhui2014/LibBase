@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.milo.libbase.framework.OriginJump;
-import com.milo.libbase.framework.mvp.FZBaseFragmentActivity;
+import com.milo.libbase.framework.mvp.MvpBaseFragmentActivity;
 
 /**
  * Title：
@@ -15,7 +15,7 @@ import com.milo.libbase.framework.mvp.FZBaseFragmentActivity;
  * E-Mail : 303767416@qq.com
  * 2020/12/1
  */
-public class DownloadTestActivity extends FZBaseFragmentActivity<DownloadTestFragment> {
+public class DownloadTestActivity extends MvpBaseFragmentActivity<DownloadTestFragment> {
 
     public static OriginJump createJump(Context context){
         return new OriginJump(context, DownloadTestActivity.class);
