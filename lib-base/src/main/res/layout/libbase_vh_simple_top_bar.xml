@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/libbase_bg_top_bar_simple"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/mImgBack"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="12dp"
+        android:src="@mipmap/libbase_back_graybg" />
+
+    <TextView
+        android:id="@+id/mTvTitle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        tools:text="视频标题视频标题视频标题视频标题视频标题" />
+
+    <ImageView
+        android:id="@+id/mImgMenu"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="12dp"
+        android:src="@mipmap/libbase_ic_report_graybg" />
+
+</RelativeLayout>

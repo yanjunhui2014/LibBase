@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
-
 import com.milo.libbase.AppConfig;
 import com.milo.libbase.R;
 import com.milo.libbase.utils.Utils;
@@ -62,7 +61,7 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
 
     protected VideoDefinition curVideoDefinition;
 
-    public    TextView  mTvSrt;
+    public    TextView    mTvSrt;
     protected PercentVH mPercentVH;
 
     private List<? extends SrtData> mSrtDataList = new ArrayList<>();
@@ -89,8 +88,8 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
 
     protected VideoCommonListener commonListener;
 
-    private Map<VideoDefinition, VideoData>                definitionMap;
-    private DefinitionPopupWindow<? extends BaseVideoView> definitionPopupWinwdow;
+    private Map<VideoDefinition, VideoData>                 definitionMap;
+    private DefinitionPopupWindow<? extends BaseVideoView>  definitionPopupWinwdow;
     private DefinitionPopupWindow.DefinitionChangedListener definitionChangedListener;
 
     private SpeedPopupWindow                     speedPopupWindow;

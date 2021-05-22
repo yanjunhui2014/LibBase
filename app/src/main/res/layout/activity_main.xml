@@ -23,6 +23,12 @@
             android:layout_height="wrap_content"
             android:text="视频播放测试" />
 
+        <Button
+            android:id="@+id/btnScreenRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="屏幕录制" />
+
     </LinearLayout>
 
 </ScrollView>

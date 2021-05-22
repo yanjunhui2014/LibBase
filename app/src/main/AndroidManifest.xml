@@ -31,6 +31,9 @@
         <activity android:name=".ui.DownloadTestActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".ui.screenrecord.ScreenRecordActivity"
+            android:screenOrientation="portrait" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"

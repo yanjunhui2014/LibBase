@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/libbase_bg_bottom_bar_simple">
+
+    <ImageView
+        android:id="@+id/video_play_control"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/libbase_ic_play" />
+
+    <TextView
+        android:id="@+id/video_played_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="4dp"
+        android:layout_toRightOf="@id/video_play_control"
+        android:text="00:00"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/video_whole_screen"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/libbase_ic_full" />
+
+    <TextView
+        android:id="@+id/video_definition"
+        android:layout_width="36dp"
+        android:layout_height="19dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/video_speed"
+        android:background="@drawable/libbase_trans_radius4_stroke_white_1"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:layout_marginEnd="10dp"
+        tools:text="标清"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/video_speed"
+        android:layout_width="36dp"
+        android:layout_height="19dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/video_whole_screen"
+        android:background="@drawable/libbase_trans_radius4_stroke_white_1"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:text="1.0x"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/video_total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/video_definition"
+        android:text="00:00"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <SeekBar
+        android:id="@+id/video_hSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/video_total_time"
+        android:layout_toRightOf="@+id/video_played_time"
+        android:max="100"
+        android:maxHeight="5dp"
+        android:minHeight="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:progressDrawable="@drawable/libbase_bar_player_seek"
+        android:thumb="@drawable/libbase_bar_seek_point_selector" />
+
+</RelativeLayout>

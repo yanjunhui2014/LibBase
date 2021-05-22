@@ -5,8 +5,13 @@
 
     <color name="libbase_c2">#333333</color>
     <color name="libbase_c3">#666666</color>
+    <color name="libbase_c4">#1b1b1b</color>
 
     <color name="libbase_white">#ffffff</color>
     <color name="libbase_divider">#bebebe</color>
+
+    <color name="libbase_trans">#00000000</color>
+    <color name="libbase_trans_half">#80000000</color>
+
 
 </resources>

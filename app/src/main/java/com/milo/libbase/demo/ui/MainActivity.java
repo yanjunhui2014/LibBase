@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.milo.libbase.demo.R;
 import com.milo.libbase.demo.databinding.ActivityMainBinding;
+import com.milo.libbase.demo.ui.screenrecord.ScreenRecordActivity;
 import com.tbruyelle.rxpermissions3.RxPermissions;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(mainBinding.getRoot());
         mainBinding.btnDownload.setOnClickListener(this);
         mainBinding.btnVideoPlay.setOnClickListener(this);
+        mainBinding.btnScreenRecord.setOnClickListener(this);
 
         RxPermissions rxPermission = new RxPermissions(this);
         rxPermission.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .navigation();
         } else if (v == mainBinding.btnVideoPlay) {
 
+        } else if(v == mainBinding.btnScreenRecord){
+            ScreenRecordActivity.createJump(this)
+                    .navigation();
         }
     }
 

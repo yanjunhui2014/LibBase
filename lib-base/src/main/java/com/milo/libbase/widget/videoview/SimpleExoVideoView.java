@@ -223,14 +223,14 @@ public class SimpleExoVideoView extends BaseVideoView<PlayerView> {
         if (playIconControl != null) {
             playIconControl.showPlayIcon(SimpleExoVideoView.this, type);
             if (type == PlayIconControl.TYPE_PLAY) {
-                playIconControl.getPlayIconView().setOnClickListener(new View.OnClickListener() {
+                playIconControl.getPlayIconView().setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         start();
                     }
                 });
             } else {
-                playIconControl.getPlayIconView().setOnClickListener(new View.OnClickListener() {
+                playIconControl.getPlayIconView().setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         stop();
