@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.milo.libbase.demo.databinding.ActivityMainBinding;
 import com.milo.libbase.demo.ui.screenrecord.ScreenRecordActivity;
+import com.milo.libbase.demo.ui.videopaly.BaseVideoViewDemoActivity;
 import com.tbruyelle.rxpermissions3.RxPermissions;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             DownloadTestActivity.createJump(this)
                     .navigation();
         } else if (v == mainBinding.btnVideoPlay) {
-
+            BaseVideoViewDemoActivity.createJump(this)
+                    .navigation();
         } else if(v == mainBinding.btnScreenRecord){
             ScreenRecordActivity.createJump(this)
                     .navigation();

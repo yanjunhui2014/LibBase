@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.milo.libbase.widget.videoview.SimpleExoVideoView
+        android:id="@+id/mSimpleVideoView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mBtnShowTopBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="showTopBar"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/mBtnHideTopBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hideTopBar"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mBtnShowBottomBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="showBottomBar"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/mBtnHideBottomBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hideBottomBar"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</LinearLayout>
