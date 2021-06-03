@@ -1,35 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp" />
 
-        <Button
-            android:id="@+id/btnDownload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="下载测试" />
-
-        <Button
-            android:id="@+id/btnVideoPlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="视频播放测试" />
-
-        <Button
-            android:id="@+id/btnScreenRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="屏幕录制" />
-
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>
