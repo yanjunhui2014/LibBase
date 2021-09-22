@@ -127,7 +127,7 @@ public class OptionPickerFragment<T> extends BottomSheetDialogFragment implement
         }
 
         try {
-            pickerBinding.recyclerView.smoothScrollBy(0, Utils.dp2px(requireContext(), 50) * (defaultPosition + 1));
+            pickerBinding.recyclerView.smoothScrollBy(0, Utils.dp2px(requireContext(), 50) * (defaultPosition));
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
