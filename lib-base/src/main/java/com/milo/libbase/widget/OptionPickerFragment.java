@@ -46,6 +46,7 @@ public class OptionPickerFragment<T> extends BottomSheetDialogFragment implement
     private OnPickerListener<T> onPickerListener;
 
     private int currentPosition;
+    private boolean isCancel;
 
     public interface OnPickerListener<T> extends Serializable {
         void onCancel();
@@ -92,10 +93,13 @@ public class OptionPickerFragment<T> extends BottomSheetDialogFragment implement
     @Override
     public void onClick(View v) {
         if (v == pickerBinding.tvCancel) {
+            isCancel = true;
             onPickerListener.onCancel();
             dismiss();
         } else if (v == pickerBinding.tvConfirm) {
-            onPickerListener.onConfirm(currentPosition - 1, (T) list.get(currentPosition));
+            if(!Utils.isEmpty(list)) {
+                onPickerListener.onConfirm(currentPosition - 1, (T) list.get(currentPosition));
+            }
             dismiss();
         }
     }
@@ -103,7 +107,7 @@ public class OptionPickerFragment<T> extends BottomSheetDialogFragment implement
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (!Utils.isEmpty(list)) {
+        if (!Utils.isEmpty(list) && !isCancel) {
             onPickerListener.onConfirm(currentPosition - 1, (T) list.get(currentPosition));
         }
         onPickerListener.onDestroy();
