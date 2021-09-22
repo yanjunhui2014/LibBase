@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="libbase_divider_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.0px</item>
+        <item name="android:background">@color/libbase_divider</item>
+    </style>
+    <style name="libbase_divider_vertical">
+        <item name="android:layout_width">1.0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/libbase_divider</item>
+    </style>
+
+    <style name="libbase_TranslucentHalfBottomSheetFragment">
+        <item name="android:windowBackground">@color/libbase_trans_half</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <!-- Note that we use the base animation style here (that is no
+             animations) because we really have no idea how this kind of
+             activity will be used. -->
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+</resources>

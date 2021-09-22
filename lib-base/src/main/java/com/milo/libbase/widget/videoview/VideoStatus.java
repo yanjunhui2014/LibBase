@@ -11,10 +11,12 @@ import androidx.annotation.IntDef;
  * E-Mail : 303767416@qq.com
  * 2021/3/25
  */
-@IntDef({VideoStatus.STATE_ERROR, VideoStatus.STATE_IDLE, VideoStatus.STATE_BUFFERING, VideoStatus.STATE_PLAYING, VideoStatus.STATE_ENDED})
+@IntDef({VideoStatus.STATE_ERROR, VideoStatus.STATE_NO_STSTE, VideoStatus.STATE_IDLE, VideoStatus.STATE_BUFFERING, VideoStatus.STATE_PLAYING, VideoStatus.STATE_ENDED})
 public @interface VideoStatus {
 
     int STATE_ERROR = -1;
+
+    int STATE_NO_STSTE = 0;
 
     int STATE_IDLE = 1;
 

@@ -40,7 +40,7 @@ import java.util.Map;
  */
 public abstract class BaseVideoView<T> extends CardView implements IVideoView<T> {
     final int MSG_UPDATE_DURATION = 1000;
-    final int MSG_HIDE_TOP_BAR    = 1001;
+    final int MSG_HIDE_TOP_BAR = 1001;
     final int MSG_HIDE_BOTTOM_BAR = 1002;
 
     public RelativeLayout mLayoutContainer;
@@ -49,50 +49,50 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
     protected String mPicUrl;
     protected String mAudioUrl;
 
-    protected float   startX       = 0;
-    protected float   startY       = 0;
+    protected float startX = 0;
+    protected float startY = 0;
     protected boolean isLeftScreen = false;
 
-    protected int     volumeValue = -1;
-    protected int     brightValue = -1;
-    protected int     screenOritation;
+    protected int volumeValue = -1;
+    protected int brightValue = -1;
+    protected int screenOritation;
     protected boolean interceptMove;
-    protected long    actionDownTime;
+    protected long actionDownTime;
 
     protected VideoDefinition curVideoDefinition;
 
-    public    TextView    mTvSrt;
+    public TextView mTvSrt;
     protected PercentVH mPercentVH;
 
     private List<? extends SrtData> mSrtDataList = new ArrayList<>();
 
     protected boolean showTopbar;
     protected boolean showBottomBar;
-    protected long    topBarHideDelay;
-    protected long    bottomBarHideDelay;
+    protected long topBarHideDelay;
+    protected long bottomBarHideDelay;
     protected boolean volumeEnable;
     protected boolean brightnessEnable;
     protected boolean videoLoop;
     protected boolean showSpeedView;
-    protected float   speedValue[];
+    protected float speedValue[];
 
     protected String videoTitle;
 
-    protected TopBar          topBar;
-    protected BottomBar       bottomBar;
-    protected LoadingView     loadingView;
+    protected TopBar topBar;
+    protected BottomBar bottomBar;
+    protected LoadingView loadingView;
     protected PlayIconControl playIconControl;
 
-    protected TopBarListener    topBarListener;
+    protected TopBarListener topBarListener;
     protected BottomBarListener bottomBarListener;
 
     protected VideoCommonListener commonListener;
 
-    private Map<VideoDefinition, VideoData>                 definitionMap;
-    private DefinitionPopupWindow<? extends BaseVideoView>  definitionPopupWinwdow;
+    private Map<VideoDefinition, VideoData> definitionMap;
+    private DefinitionPopupWindow<? extends BaseVideoView> definitionPopupWinwdow;
     private DefinitionPopupWindow.DefinitionChangedListener definitionChangedListener;
 
-    private SpeedPopupWindow                     speedPopupWindow;
+    private SpeedPopupWindow speedPopupWindow;
     private SpeedPopupWindow.SpeedWindowListener speedWindowListener;
 
     protected WeakHandler mWeakHandler = new WeakHandler(new Handler.Callback() {
@@ -103,12 +103,14 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
                     if (getDuration() != 0) {
                         int duration = getDuration();
                         int curDuration = getCurDuration();
-                        if (bottomBar.getSeekBar() != null) {
-                            bottomBar.getSeekBar().setMax(duration);
-                            bottomBar.getSeekBar().setProgress(curDuration);
+                        if (bottomBar != null) {
+                            if (bottomBar.getSeekBar() != null) {
+                                bottomBar.getSeekBar().setMax(duration);
+                                bottomBar.getSeekBar().setProgress(curDuration);
+                            }
+                            bottomBar.getTotalTimeTextView().setText(Utils.millsToString(duration));
+                            bottomBar.getCurTimeTextView().setText(Utils.millsToString(curDuration));
                         }
-                        bottomBar.getTotalTimeTextView().setText(Utils.millsToString(duration));
-                        bottomBar.getCurTimeTextView().setText(Utils.millsToString(curDuration));
                         if (commonListener != null) {
                             commonListener.onDurationChanged(duration, curDuration);
                         }
@@ -221,6 +223,10 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
 
     @Override
     public void showTopBar(long hideDelay) {
+        if (topBar == null) {
+            return;
+        }
+
         if (showTopbar) {
             topBar.getTopBarView().setVisibility(View.VISIBLE);
             mWeakHandler.removeMessages(MSG_HIDE_TOP_BAR);
@@ -230,6 +236,9 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
 
     @Override
     public void showBottomBar(long hideDelay) {
+        if (bottomBar == null) {
+            return;
+        }
         if (showBottomBar) {
             bottomBar.getBottomBarView().setVisibility(View.VISIBLE);
             mWeakHandler.removeMessages(MSG_HIDE_BOTTOM_BAR);
@@ -558,17 +567,21 @@ public abstract class BaseVideoView<T> extends CardView implements IVideoView<T>
     }
 
     private void simulationClick() {
-        if (topBar.getTopBarView().getVisibility() == View.VISIBLE) {
-            mWeakHandler.removeMessages(MSG_HIDE_TOP_BAR);
-            topBar.getTopBarView().setVisibility(View.GONE);
-        } else {
-            showTopBar(topBarHideDelay);
+        if (topBar != null) {
+            if (topBar.getTopBarView().getVisibility() == View.VISIBLE) {
+                mWeakHandler.removeMessages(MSG_HIDE_TOP_BAR);
+                topBar.getTopBarView().setVisibility(View.GONE);
+            } else {
+                showTopBar(topBarHideDelay);
+            }
         }
-        if (bottomBar.getBottomBarView().getVisibility() == View.VISIBLE) {
-            mWeakHandler.removeMessages(MSG_HIDE_BOTTOM_BAR);
-            bottomBar.getBottomBarView().setVisibility(View.GONE);
-        } else {
-            showBottomBar(bottomBarHideDelay);
+        if (bottomBar != null) {
+            if (bottomBar.getBottomBarView().getVisibility() == View.VISIBLE) {
+                mWeakHandler.removeMessages(MSG_HIDE_BOTTOM_BAR);
+                bottomBar.getBottomBarView().setVisibility(View.GONE);
+            } else {
+                showBottomBar(bottomBarHideDelay);
+            }
         }
     }
 

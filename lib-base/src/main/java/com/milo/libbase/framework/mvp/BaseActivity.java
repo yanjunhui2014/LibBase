@@ -28,7 +28,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         LogUtils.i(getClass().getSimpleName(), "onResume");
-
     }
 
     @Override

@@ -39,6 +39,7 @@ public class SimpleExoVideoView extends BaseVideoView<PlayerView> {
     protected SimpleExoPlayer mExoPlayer;
 
     protected BaseMediaSource mMediaSource;
+    protected int mPlaybackState = VideoStatus.STATE_NO_STSTE;
 
     public SimpleExoVideoView(Context context) {
         super(context);
@@ -78,10 +79,17 @@ public class SimpleExoVideoView extends BaseVideoView<PlayerView> {
         if (mMediaSource == null) {
             return;
         }
+        if(mPlaybackState == VideoStatus.STATE_ENDED){
+            mExoPlayer.seekTo(0);
+        } else if(mExoPlayer.getDuration() != 0 && (mExoPlayer.getCurrentPosition() + 500) >= mExoPlayer.getDuration()){
+            mExoPlayer.seekTo(0);
+        }
         mExoPlayer.prepare(mMediaSource, false, false);
         mExoPlayer.setPlayWhenReady(true);
 
-        bottomBar.getPlayView().setImageResource(bottomBar.getPlayViewResIds()[1]);
+        if(bottomBar != null) {
+            bottomBar.getPlayView().setImageResource(bottomBar.getPlayViewResIds()[1]);
+        }
         if (showTopbar) {
             showTopBar(topBarHideDelay);
             showBottomBar(bottomBarHideDelay);
@@ -91,7 +99,9 @@ public class SimpleExoVideoView extends BaseVideoView<PlayerView> {
     @Override
     public void stop() {
         mExoPlayer.stop();
-        bottomBar.getPlayView().setImageResource(bottomBar.getPlayViewResIds()[0]);
+        if(bottomBar != null) {
+            bottomBar.getPlayView().setImageResource(bottomBar.getPlayViewResIds()[0]);
+        }
     }
 
     @Override
@@ -176,6 +186,7 @@ public class SimpleExoVideoView extends BaseVideoView<PlayerView> {
                 @Override
                 public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                     Log.d("ExoVideoView", "playbackState == " + playbackState);
+                    mPlaybackState = playbackState;
 
                     if (playbackState == Player.STATE_IDLE) {
                         if (loadingView != null) {
