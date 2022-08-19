@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.milo.libbase.commonadapter.CommonRecyclerAdapter;
 import com.milo.libbase.widget.refreshview.MoreViewHolder;
-import com.zhl.commonadapter.CommonRecyclerAdapter;
 
 public abstract class BaseRefreshRecyclerView extends BaseRefreshView {
 

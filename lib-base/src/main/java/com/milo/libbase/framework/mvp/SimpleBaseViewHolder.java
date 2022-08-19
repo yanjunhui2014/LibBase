@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.zhl.commonadapter.BaseViewHolder;
+import com.milo.libbase.commonadapter.BaseViewHolder;
 
 /**
  * 标题：少趣BaseViewHolder

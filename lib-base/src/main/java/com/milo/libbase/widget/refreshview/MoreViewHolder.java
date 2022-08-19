@@ -4,7 +4,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.zhl.commonadapter.BaseViewHolder;
+import com.milo.libbase.commonadapter.BaseViewHolder;
 
 public abstract class MoreViewHolder extends BaseViewHolder<MoreViewHolder.LoadMore> implements ILoadMoreView {
 

@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.milo.libbase.R;
+import com.milo.libbase.commonadapter.BaseViewHolder;
+import com.milo.libbase.commonadapter.CommonRecyclerAdapter;
 import com.milo.libbase.widget.refreshview.base.RefreshListener;
-import com.zhl.commonadapter.BaseViewHolder;
-import com.zhl.commonadapter.CommonRecyclerAdapter;
 
 public abstract class MvpListDataFragment<P extends MvpListDataContract.Presenter<D>, D> extends MvpBaseRecyclerFragment<P>
         implements MvpListDataContract.View<P> {
